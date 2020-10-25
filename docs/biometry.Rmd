@@ -1,15 +1,18 @@
 ---
 title: "Workflow en Biologie - Biométrie humaine"
-author: "..."
-date: "..."
-output: html_document
+author: "Deschuyteneer Audry"
+date: '...'
+output:
+  html_document: default
+  word_document: default
+  pdf_document: default
 ---
-
-<!-- RC : ATTENTION de ne pas supprimer les lignes de codes ci-dessous, elles vous permettent d'importer et de formater les données. -->
-
-```{r setup}
+```{r setup, include+FALSE}
+knitr::opts_chunk$set(echo = TRUE)
 SciViews::R
 ```
+
+<!-- RC : ATTENTION de ne pas supprimer les lignes de codes ci-dessous, elles vous permettent d'importer et de formater les données. -->
 
 ```{r importation}
 # Importation des données
@@ -39,4 +42,18 @@ biometry <- labelise(biometry, self = FALSE,
     measurement_date = "année")
 )
 ```
-
+Introduction :
+L’expérience menée a pour but de comparer la masse des hommes et des femmes et de déterminer quel groupe à la masse la plus grande.
+But :
+Le but va donc être de trouver un lien entre sex et masse.
+Matériel et méthodes :
+Pour l’analyse je vais utiliser le programme R dans lequel j’ai trouvé les données et mis en graphique le genre et la masse.
+```{r}
+SciViews::R
+chart(biometry, gender ~ weight %col=% gender) +
+  geom_point(na.rm = TRUE)
+```
+Discussion :
+On peut observer que la plupart des femmes ont un poids plus petit (entre 50 et 65kg) que la majorité des hommes (entre 70 et 85 kg)
+Conclusions :
+La masse des femmes est plus petite dans la majorité des cas que les hommes.
