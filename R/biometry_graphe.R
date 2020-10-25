@@ -34,3 +34,5 @@ biometry <- labelise(biometry, self = FALSE,
 )
 
 # Ci-dessous vos graphiques ----
+chart(biometry, height ~ weight) +
+  geom_point(na.rm = TRUE)
